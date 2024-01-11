@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/Top.svg";
 import userImg from "../../assets/Vector.svg";
 import home from "../../assets/home.svg";
@@ -8,10 +9,16 @@ import settings from "../../assets/settings.svg";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [activeButton, setActiveButton] = useState("home");
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
+    if (buttonName === "home") {
+      navigate("/");
+    } else {
+      navigate(`/${buttonName}`);
+    }
   };
 
   const buttonStyle = (buttonName) => {

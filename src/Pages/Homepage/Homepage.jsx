@@ -1,12 +1,10 @@
 import React from "react";
-import Navbar from "../../Components/Navbar/Navbar";
 import InfoCard from "../../Components/InfoCard/InfoCard";
 import "./Homepage.css";
 
 const Homepage = () => {
   return (
     <div className="Homepage">
-      <Navbar />
       <div className="contents">
         <p className="heading">Dashboard</p>
         <div className="InfoCards">
