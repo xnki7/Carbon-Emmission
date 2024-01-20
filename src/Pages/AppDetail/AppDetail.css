@@ -1,0 +1,94 @@
+.AppDetail{
+    margin-left: 16rem;
+    background-color: #1F1F1F;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.AppDetail .chart{
+    width: 50%;
+}
+
+.AppDetail .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.AppDetail .title p{
+    font-size: 4rem;
+    color: white;
+    margin-left: 1rem;
+}
+
+.AppDetail .actionButtons img{
+    width: 2.5rem;
+    margin-right: 0.5rem;
+}
+
+.AppDetail .title img{
+    width: 5rem;
+}
+
+.AppDetail .actionButtons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.AppDetail .actionButtons button{
+    width: 30%;
+    font-size: 1.25rem;
+    color: white;
+    background-color: #3a3a3a;
+    border: none;
+    height: 5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AppDetail .infoButtons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.AppDetail .infoButtons img{
+    width: 2.5rem;
+    margin-right: 1rem;
+}
+
+.AppDetail .infoButtons .infoCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    background-color: #3a3a3a;
+    color: white;
+    height: 5rem;
+    border-radius: 10px;
+    font-size: 1.25rem;
+}
+
+.AppDetail .infoButtons .infoCard .text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.AppDetail .parentChart{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}

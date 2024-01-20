@@ -10,11 +10,11 @@ import { desktopAppDetails } from "../../constant";
 
 const Apps = () => {
   const appImages = {
-    Spotify: spotify,
-    Figma: figma,
-    Brave: brave,
+    "Spotify": spotify,
+    "Figma": figma,
+    "Brave": brave,
     "VS Code": vscode,
-    Postman: postman,
+    "Postman": postman,
   };
   return (
     <div className="Apps">
@@ -22,7 +22,12 @@ const Apps = () => {
       {desktopAppDetails.map((app) => {
         const appImage = appImages[app.name];
         return (
-          <AppCard img={appImage} name={app.name} percentage={app.percentage} />
+          <AppCard
+            img={appImage}
+            name={app.name}
+            percentage={app.percentage}
+            app={app}
+          />
         );
       })}
     </div>

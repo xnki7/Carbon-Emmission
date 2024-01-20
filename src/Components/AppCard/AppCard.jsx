@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./AppCard.css";
 
-const AppCard = ({ img, name, percentage }) => {
+const AppCard = ({ img, name, percentage, app }) => {
+  const navigate = useNavigate();
   return (
-    <div className="AppCard">
+    <div
+      className="AppCard"
+      onClick={() => {
+        navigate(`/apps/${name}`, { state: { app } });
+      }}
+    >
       <img src={img} alt="" />
       <div className="right">
         <div className="texts">
