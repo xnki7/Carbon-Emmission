@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./AppDetail.css";
 import { useLocation } from "react-router-dom";
 import spotify from "../../assets/spotify.svg";
@@ -15,8 +15,21 @@ import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 
 const AppDetail = () => {
+  const [carbonEmitted, setCarbonEmitted] = useState(null);
   const location = useLocation();
   const app = location.state.app;
+
+  useEffect(() => {
+    const carbon = calculateCarbonEmission(
+      app.cpuUsage,
+      app.gpuUsage,
+      app.runtime,
+      app.powerCpu,
+      app.powerGpu,
+      app.emissionFactor
+    );
+    setCarbonEmitted(carbon);
+  }, [app]);
 
   const appImages = {
     Spotify: spotify,
@@ -64,6 +77,22 @@ const AppDetail = () => {
     },
   };
 
+  function calculateCarbonEmission(
+    cpuUsage,
+    gpuUsage,
+    runtime,
+    powerCpu,
+    powerGpu,
+    emissionFactor
+  ) {
+    powerCpu /= 1000; // Convert power from Watts to Kilowatts
+    powerGpu /= 1000;
+    runtime /= 60; // Convert runtime from minutes to hours
+    let energyCpu = powerCpu * runtime * (cpuUsage / 100);
+    let energyGpu = powerGpu * runtime * (gpuUsage / 100);
+    return (energyCpu + energyGpu) * emissionFactor;
+  }
+
   return (
     <div className="AppDetail">
       <div className="title">
@@ -104,6 +133,33 @@ const AppDetail = () => {
         <div className="chart">
           <Line data={data} options={options} />
         </div>
+        <div className="details">
+          <p className="heading">App Details:</p>
+          <div className="appInfo">
+            <div>
+              <p>CPU Usage : {app.cpuUsage}%</p>
+              <p>GPU Usage : {app.gpuUsage}%</p>
+              <p>Runtime : {app.runtime} min</p>
+            </div>
+            <div>
+              <p>Power CPU : {app.cpuUsage} W</p>
+              <p>Power GPU : {app.cpuUsage} W</p>
+              <p>Emission Factor : {app.emissionFactor} kg CO2/kWh</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="carbonEmitted">
+        <p className="heading">Total Carbon Emmited :</p>
+        {carbonEmitted ? <p>&nbsp;&nbsp;{carbonEmitted} Kg CO2</p> : null}
+      </div>
+      <div className="tips">
+        <p className="head">Tips:</p>
+        <p>• Close apps when not in use to save energy.</p>
+        <p>• Limit background app processes to reduce CPU and GPU usage.</p>
+        <p>• Lower screen brightness to decrease power consumption.</p>
+        <p>• Keep apps updated for energy efficiency improvements.</p>
+        <p>• Use energy-saving modes on your device to conserve power.</p>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@
 }
 
 .AppDetail .chart{
-    width: 50%;
+    width: 45%;
 }
 
 .AppDetail .title{
@@ -89,6 +89,64 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 2rem;
+}
+
+.AppDetail .parentChart .details{
+    width: 45%;
+    background-color: #3a3a3a;
+    height: 100%;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.AppDetail .parentChart .details .appInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.AppDetail .parentChart .details P.heading{
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+}
+
+.AppDetail .carbonEmitted{
+    background-color: black;
+    color: white;
+    width: max-content;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.25rem;
+}
+
+.AppDetail .carbonEmitted p.heading{
+    font-weight: 600;
+}
+
+.AppDetail .tips{
+    width: max-content;
+    margin: 1rem auto;
+    color: white;
+    background-color: rgba(0, 255, 0, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+
+.AppDetail .tips p{
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.AppDetail .tips p.head{
+    font-weight: 500;
+    font-size: 1.15rem;
 }
