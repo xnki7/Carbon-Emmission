@@ -45,13 +45,13 @@ const Navbar = () => {
           <img src={apps} className="bigIcon" alt="" />
           <p>Your Apps</p>
         </button>
-        <button
+        {/* <button
           style={buttonStyle("stats")}
           onClick={() => handleButtonClick("stats")}
         >
           <img src={stats} alt="" />
           <p>Stats</p>
-        </button>
+        </button> */}
         <button
           style={buttonStyle("settings")}
           onClick={() => handleButtonClick("settings")}
